@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Healthcare Blue Theme */
+    --background: 0 0% 100%;
+    --foreground: 215 25% 27%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    --primary: 213 100% 40%;  /* #0066CC Healthcare Blue */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 15% 95%;
+    --secondary-foreground: 215 25% 27%;
+
+    --muted: 215 15% 95%;
+    --muted-foreground: 215 10% 50%;
+
+    --accent: 213 50% 95%;
+    --accent-foreground: 213 100% 40%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 15% 92%;
+    --input: 215 15% 92%;
+    --ring: 213 100% 40%;
+
+    /* Healthcare specific colors */
+    --healthcare-blue: 213 100% 40%;
+    --healthcare-light-blue: 213 50% 95%;
+    --healthcare-navy: 215 100% 20%;
+    --healthcare-grey: 215 10% 96%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(213 100% 40%) 0%, hsl(215 100% 20%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(215 15% 98%) 100%);
+    --gradient-section: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(215 15% 98%) 100%);
+    
+    /* Shadows */
+    --shadow-card: 0 4px 20px hsl(213 100% 40% / 0.08);
+    --shadow-hover: 0 8px 30px hsl(213 100% 40% / 0.15);
+    --shadow-button: 0 4px 15px hsl(213 100% 40% / 0.25);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 100% 6%;
+    --foreground: 0 0% 98%;
+
+    --card: 215 100% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 215 100% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 213 100% 50%;
+    --primary-foreground: 215 100% 6%;
+
+    --secondary: 215 50% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 215 50% 15%;
+    --muted-foreground: 215 10% 70%;
+
+    --accent: 215 50% 15%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 215 50% 15%;
+    --input: 215 50% 15%;
+    --ring: 213 100% 50%;
+
+    --healthcare-blue: 213 100% 50%;
+    --healthcare-light-blue: 213 50% 15%;
+    --healthcare-navy: 215 100% 10%;
+    --healthcare-grey: 215 50% 10%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins antialiased;
+  }
+
+  /* Scroll animations - Updated for debugging */
+  .animate-on-scroll {
+    opacity: 1; /* Changed from 0 to 1 for debugging */
+    transform: translateY(0px); /* Changed from 30px to 0px for debugging */
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Floating animation for hero elements */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Counter animation */
+  .counter {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  /* Healthcare Button Variants */
+  .btn-healthcare-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 shadow-[var(--shadow-button)] transition-[var(--transition-smooth)] hover:shadow-[var(--shadow-hover)] hover:scale-105;
+  }
+
+  .btn-healthcare-secondary {
+    @apply bg-white text-primary border-2 border-primary hover:bg-primary hover:text-white shadow-[var(--shadow-card)] transition-[var(--transition-smooth)] hover:shadow-[var(--shadow-hover)] hover:scale-105;
+  }
+
+  /* Healthcare Cards */
+  .healthcare-card {
+    @apply bg-white rounded-xl p-6 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)] transition-[var(--transition-smooth)] hover:scale-105 border border-border/50;
+  }
+
+  .healthcare-section {
+    @apply bg-gradient-to-b from-white to-[hsl(var(--healthcare-grey))] py-20;
+  }
+}
