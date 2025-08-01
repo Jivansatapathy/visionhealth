@@ -24,11 +24,11 @@ const Navbar = () => {
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-1">
-              <Phone className="h-3 w-3" />
+              <Phone className="h-3 w-3 transition-transform duration-500 hover:animate-bounce" />
               <span>+91 9876543210</span>
             </div>
             <div className="flex items-center space-x-1">
-              <Mail className="h-3 w-3" />
+              <Mail className="h-3 w-3 transition-transform duration-500 hover:animate-bounce" />
               <span>careers@visionhealthconnect.com</span>
             </div>
           </div>
@@ -46,12 +46,8 @@ const Navbar = () => {
             <img
               src="/health.jpg"
               alt="Vision Health Connect Logo"
-              className="h-10 w-10 rounded-lg object-cover bg-primary p-1"
+              className="h-10 w-10 rounded-lg object-cover bg-primary p-1 transition-transform duration-500 hover:animate-bounce"
             />
-            <div>
-              <div className="text-xl font-bold text-primary">Vision Health Connect</div>
-              <div className="text-xs text-muted-foreground">Healthcare • Careers • Growth</div>
-            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -60,7 +56,7 @@ const Navbar = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`font-medium transition-colors hover:text-primary ${
+                className={`font-medium transition-colors hover:text-primary hover:animate-bounce duration-500 ${
                   isActive(item.path) ? 'text-primary' : 'text-foreground'
                 }`}
               >
@@ -89,7 +85,7 @@ const Navbar = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`font-medium transition-colors hover:text-primary ${
+                  className={`font-medium transition-colors hover:text-primary hover:animate-bounce duration-500 ${
                     isActive(item.path) ? 'text-primary' : 'text-foreground'
                   }`}
                   onClick={() => setIsOpen(false)}

@@ -30,14 +30,14 @@ const Index = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section 
-        className="relative bg-gradient-to-br from-primary via-healthcare-navy to-primary min-h-screen flex items-center justify-center text-white overflow-hidden"
+        className="relative bg-gradient-to-br from-primary via-healthcare-navy to-healthcare-blue min-h-screen flex items-center justify-center text-white overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 102, 204, 0.85), rgba(0, 102, 204, 0.85)), url(${heroBackground})`,
+          backgroundImage: `linear-gradient(rgba(43, 141, 142, 0.85), rgba(71, 137, 195, 0.85)), url(${heroBackground})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-healthcare-navy/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-healthcare-blue/90"></div>
         
         {/* Floating elements */}
         <div className="absolute top-20 left-10 animate-float">
