@@ -1,11 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -18,7 +33,7 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
+    <nav className={`bg-white ${scrolled ? 'shadow-xl' : 'shadow-lg'} sticky top-0 z-50 transition-all duration-300`}>
       {/* Top bar with contact info */}
       <div className="bg-primary text-white py-2">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
@@ -40,13 +55,13 @@ const Navbar = () => {
 
       {/* Main navigation */}
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center py-4">
+        <div className={`flex justify-between items-center ${scrolled ? 'py-2' : 'py-4'} transition-all duration-300`}>
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img
               src="/health.jpg"
               alt="Vision Health Connect Logo"
-              className="h-10 w-10 rounded-lg object-cover bg-primary p-1 transition-transform duration-500 hover:animate-bounce"
+              className={`${scrolled ? 'h-12 w-12' : 'h-20 w-20'} rounded-lg object-cover transition-all duration-300 hover:animate-bounce`}
             />
           </Link>
 
