@@ -18,7 +18,7 @@ import {
   Star,
   Phone
 } from 'lucide-react';
-import heroBackground from '@/assets/hero-background.jpg';
+import heroBackground from '@/assets/banner.avif';
 
 const Index = () => {
   useScrollAnimation();
@@ -30,28 +30,28 @@ const Index = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section 
-        className="relative bg-gradient-to-br from-primary via-healthcare-navy to-healthcare-blue min-h-screen flex items-center justify-center text-white overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(rgba(43, 141, 142, 0.85), rgba(71, 137, 195, 0.85)), url(${heroBackground})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        className="relative min-h-screen flex items-center justify-center text-white overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-healthcare-blue/90"></div>
+        <img 
+          src={heroBackground} 
+          alt="Healthcare Banner" 
+          className="absolute inset-0 w-full h-full object-cover z-0" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-healthcare-blue/30 z-10"></div>
         
         {/* Floating elements */}
-        <div className="absolute top-20 left-10 animate-float">
+        <div className="absolute top-20 left-10 animate-float z-20">
           <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center">
             <Heart className="h-10 w-10 text-white" />
           </div>
         </div>
-        <div className="absolute bottom-32 right-20 animate-float" style={{ animationDelay: '2s' }}>
+        <div className="absolute bottom-32 right-20 animate-float z-20" style={{ animationDelay: '2s' }}>
           <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center">
             <Stethoscope className="h-8 w-8 text-white" />
           </div>
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="relative z-20 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               A Thriving Career in 
