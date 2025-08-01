@@ -175,4 +175,18 @@ All colors MUST be HSL.
   .healthcare-section {
     @apply bg-gradient-to-b from-white to-[hsl(var(--healthcare-grey))] py-20;
   }
+  
+  /* Footer Styles */
+  .footer-link {
+    @apply hover:text-blue-200 transition-colors flex items-center;
+  }
+  
+  .footer-icon {
+    @apply hover:text-blue-200 transition-colors;
+  }
+  
+  /* CTA Button Style */
+  .cta-button-text {
+    @apply text-healthcare-navy font-bold;
+  }
 }

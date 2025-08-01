@@ -66,7 +66,7 @@ const Index = () => {
                 Apply Now
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-6 rounded-full">
+              <Button size="lg" variant="outline" className="border-white text-black hover:bg-white hover:text-primary text-lg px-8 py-6 rounded-full">
                 Learn More
               </Button>
             </div>
@@ -335,9 +335,9 @@ const Index = () => {
             <p className="text-xl text-blue-100 mb-8">
               Ready to take the next step in your healthcare career? Our specialists are here to guide you.
             </p>
-            <Button size="lg" className="bg-white text-primary hover:bg-blue-50 text-lg px-8 py-6 rounded-full shadow-xl hover:scale-105 transition-all duration-300">
-              <Phone className="mr-2 h-5 w-5" />
-              Start Your Journey Today
+            <Button size="lg" className="bg-white hover:bg-blue-50 text-lg px-8 py-6 rounded-full shadow-xl hover:scale-105 transition-all duration-300">
+              <Phone className="mr-2 h-5 w-5 text-black" />
+              <span className="text-black font-bold">Start Your Journey Today</span>
             </Button>
           </div>
         </div>
